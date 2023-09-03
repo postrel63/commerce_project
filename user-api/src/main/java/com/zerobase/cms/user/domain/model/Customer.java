@@ -12,12 +12,12 @@ import java.util.Locale;
 
 @Entity
 @Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @AuditOverride(forClass = BaseEntity.class) // baseEntity를 사용하기 위함, gradle에  envers
 public class Customer extends BaseEntity{
-
 
     @Id
     @Column(name = "id", nullable = false)
@@ -34,7 +34,7 @@ public class Customer extends BaseEntity{
 
     private LocalDateTime verifyExpiredAt;
     private String verificationCode;
-    private boolean verify = false;
+    private boolean verify;
 
     public static Customer from(SignUpForm form){
         return Customer.builder()
