@@ -1,8 +1,10 @@
 package com.zerobase.cms.user.service;
 
 import com.zerobase.cms.user.client.MailgunClient;
+import com.zerobase.cms.user.client.mailgun.SendMailForm;
 import com.zerobase.cms.user.service.EmailSendService;
 import feign.Response;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +19,15 @@ class EmailSendServiceTest {
     @Test
     public void EmailTest() {
         //given
-        mailgunClient.sendEmail(null);
+        SendMailForm form = SendMailForm.builder()
+                .from("test@Email.com")
+                .to("postrel6333@gmail.com")
+                .subject("EmailTest")
+                .text("Test")
+                .build();
+
+        Response response = mailgunClient.sendEmail(form);
+        Assertions.assertNotNull(response);
         //when
         //then
     }
