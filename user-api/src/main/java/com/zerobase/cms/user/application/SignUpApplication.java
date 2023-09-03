@@ -1,19 +1,16 @@
 package com.zerobase.cms.user.application;
 
 
+import com.zerobase.cms.user.domain.SignUpForm;
 import com.zerobase.cms.user.client.MailgunClient;
 import com.zerobase.cms.user.client.mailgun.SendMailForm;
-import com.zerobase.cms.user.domain.SignUpForm;
 import com.zerobase.cms.user.domain.model.Customer;
 import com.zerobase.cms.user.exception.CustomException;
 import com.zerobase.cms.user.exception.ErrorCode;
 import com.zerobase.cms.user.service.SignUpCustomerService;
-import feign.Response;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
@@ -57,6 +54,7 @@ public class SignUpApplication {
                 .append(code).toString();
     }
 
+    //이메일 인증
     public void customerVerify(String email, String code) {
         signUpCustomerService.VerifyEmail(email,code);
 
