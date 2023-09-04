@@ -1,7 +1,7 @@
 package com.zerobase.cms.user.service;
 
 import com.zerobase.cms.user.domain.SignUpForm;
-import com.zerobase.cms.user.exception.CustomException;
+import com.zerobase.cms.user.exception.CustomerException;
 import com.zerobase.cms.user.exception.ErrorCode;
 import com.zerobase.cms.user.repository.CustomerRepository;
 import com.zerobase.cms.user.domain.model.Customer;
@@ -40,24 +40,24 @@ public class SignUpCustomerService {
             customer.setVerifyExpiredAt(LocalDateTime.now().plusDays(1));
             return customer.getVerifyExpiredAt();
         }
-        throw new CustomException(ErrorCode.NOT_FOUND_USER);
+        throw new CustomerException(ErrorCode.NOT_FOUND_USER);
 
     }
 
     @Transactional
     public void VerifyEmail(String email, String code){
         Customer customer = customerRepository.findByEmail(email)
-                .orElseThrow(() -> new CustomException(ErrorCode.NOT_FOUND_USER));
+                .orElseThrow(() -> new CustomerException(ErrorCode.NOT_FOUND_USER));
 
         if (customer.isVerify()){
-            throw new CustomException(ErrorCode.ALREADY_VERIFY);
+            throw new CustomerException(ErrorCode.ALREADY_VERIFY);
         }
         if (customer.getVerifyExpiredAt().isBefore(LocalDateTime.now())){
-            throw new CustomException(ErrorCode.EXPIRED_VERIFY);
+            throw new CustomerException(ErrorCode.EXPIRED_VERIFY);
         }
 
         if (!customer.getVerificationCode().equals(code)){
-            throw new CustomException(ErrorCode.WRONG_VERIFY);
+            throw new CustomerException(ErrorCode.WRONG_VERIFY);
         }
 
         customer.setVerify(true);
