@@ -1,7 +1,6 @@
-package com.zerobase.cms.user.controller;
+package com.zerobase.cms.user.controller.Customer;
 
 import com.zerobase.cms.user.application.SignInApplication;
-import com.zerobase.cms.user.service.CustomerService;
 import com.zerobase.cms.user.domain.SignInForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,10 +18,13 @@ public class SignInController {
 
 
     @PostMapping("/customer")
-    public ResponseEntity<String> SignInCustomer(@RequestBody SignInForm form){
+    public ResponseEntity<String> SignInCustomer(@RequestBody SignInForm form) {
         return ResponseEntity.ok(signInApplication.customerLoginToken(form));
+    }
 
-
+    @PostMapping("/seller")
+    public ResponseEntity<String> SignInSeller(@RequestBody SignInForm form) {
+        return ResponseEntity.ok(signInApplication.sellerLoginToken(form));
     }
 
 }

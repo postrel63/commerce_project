@@ -20,5 +20,6 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
-
+      ddl-auto: update
+#처음엔 여러 데이터 테스트 용으로 create 했지만 이는 위험하니
+#update

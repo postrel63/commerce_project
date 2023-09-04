@@ -1,6 +1,6 @@
 package com.zerobase.cms.user.controller;
 
-import com.zerobase.cms.user.service.EmailSendService;
+import com.zerobase.cms.user.service.EmailTest.EmailSendService;
 import feign.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +12,7 @@ public class TestController {
     private final EmailSendService emailSendService;
 
     @GetMapping
-    public Response sendTestEmail(){
+    public Response sendTestEmail() {
         return emailSendService.sendEmail();
     }
 

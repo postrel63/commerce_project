@@ -1,7 +1,7 @@
-package com.zerobase.cms.user.service;
+package com.zerobase.cms.user.service.Customer;
 
-import com.zerobase.cms.user.repository.CustomerRepository;
 import com.zerobase.cms.user.domain.model.Customer;
+import com.zerobase.cms.user.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ public class CustomerService {
 
     private final CustomerRepository customerRepository;
 
-    public Optional<Customer> findByIdAndEmail(Long id, String email){
+    public Optional<Customer> findByIdAndEmail(Long id, String email) {
         return customerRepository.findById(id)
                 .stream().filter(customer -> customer.getEmail().equals(email)).findFirst();
 
