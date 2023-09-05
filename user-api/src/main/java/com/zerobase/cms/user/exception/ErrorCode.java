@@ -16,7 +16,10 @@ public enum ErrorCode {
     NOT_FOUND_USER(HttpStatus.BAD_REQUEST, "회원 정보가 없습니다."),
 
     //로그인
-    LOGIN_CHECK_FAIL(HttpStatus.BAD_REQUEST, "아이디나 패스워드를 확인해주세요.");
+    LOGIN_CHECK_FAIL(HttpStatus.BAD_REQUEST, "아이디나 패스워드를 확인해주세요."),
+
+    //예치금
+    NOT_ENOUGH_BALANCE(HttpStatus.BAD_REQUEST, "잔액이 부족합니다.");
 
 
     private final HttpStatus httpStatus;
