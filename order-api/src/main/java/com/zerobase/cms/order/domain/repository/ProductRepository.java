@@ -13,7 +13,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     //lazy 로딩 , 즉 지연로딩을 즉각 불러올 수 있게
 
 
-
+    Optional<Product> findBySellerIdAndId(Long sellerId, Long id);
 
 
 }
