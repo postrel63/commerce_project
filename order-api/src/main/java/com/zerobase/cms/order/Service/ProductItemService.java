@@ -10,6 +10,7 @@ import com.zerobase.cms.order.exception.ErrorCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
@@ -21,7 +22,13 @@ public class ProductItemService {
     private final ProductRepository productRepository;
     private final ProductItemRepository productItemRepository;
 
+    // 판매자 아이디와 아이템 옵션 정보들( ex 에어포스 신발의 옵션)
+    // 판매자 아이디와 상품 아이디로 해당 상품 컬럼 찾기
+    // 해당 아이템이 없으면 해당에러
+    // 있으면 상품의 옵션이 중복인지( name 이 같은 게 있는지) 판단 후 에러처리
+    // 없으면 상품 저장
 
+    @Transactional
     public Product addProductItem(Long sellerId, AddProductItemForm form){
         Product product = productRepository.findBySellerIdAndId(sellerId, form.getProductId())
                 .orElseThrow(() -> new CustomException(ErrorCode.NOT_FOUND_PRODUCT));

@@ -15,7 +15,8 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Audited@AuditOverride(forClass = BaseEntity.class)
+@Audited
+@AuditOverride(forClass = BaseEntity.class)
 public class ProductItem extends BaseEntity{
 
     @Id
