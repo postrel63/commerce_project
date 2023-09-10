@@ -1,0 +1,58 @@
+### 회원가입 (고객)
+POST http://localhost:8081/signup/customer
+Content-Type: application/json
+
+{
+  "birth": "2023-09-10",
+  "email": "postrel6333@gmail.com",
+  "name": "customerTestId",
+  "password": "string",
+  "phone": "string"
+}
+### 이메일 인증 (고객)
+GET http://localhost:8081/signup/customer/verify?email=postrel6333@gmail.com&code=mMR4TAEnbo
+
+### 로그인(고객)
+POST http://localhost:8081/signIn/customer
+Content-Type: application/json
+
+{
+  "email": "postrel6333@gmail.com",
+  "password": "string"
+}
+### eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvV3ljLzFTSnRqMnBQZWIvL205TUl5dnliZ1VrS21YTXZCelhYbEJNSGg4PSIsImp0aSI6Im1IOVJsbWdxK1lVQW9OOW01WnN4M0E9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2OTQzNDMxNzQsImV4cCI6MTY5NDQyOTU3NH0.FEoaWYR9Onjm67s2eTNflXYEaj-XmzA76z1PiucKKLE
+
+### 회원 정보 조회(고객)
+GET http://localhost:8081/customer/getInfo
+Content-Type: application/json
+X-AUTH-TOKEN:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvV3ljLzFTSnRqMnBQZWIvL205TUl5dnliZ1VrS21YTXZCelhYbEJNSGg4PSIsImp0aSI6Im1IOVJsbWdxK1lVQW9OOW01WnN4M0E9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2OTQzNDMxNzQsImV4cCI6MTY5NDQyOTU3NH0.FEoaWYR9Onjm67s2eTNflXYEaj-XmzA76z1PiucKKLE
+
+
+### 잔액 변경(고객)
+PUT http://localhost:8081/customer/balance
+Content-Type: application/json
+X-AUTH-TOKEN:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvV3ljLzFTSnRqMnBQZWIvL205TUl5dnliZ1VrS21YTXZCelhYbEJNSGg4PSIsImp0aSI6Im1IOVJsbWdxK1lVQW9OOW01WnN4M0E9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2OTQzNDMxNzQsImV4cCI6MTY5NDQyOTU3NH0.FEoaWYR9Onjm67s2eTNflXYEaj-XmzA76z1PiucKKLE
+
+{
+  "from": "myMoney",
+  "message": "입금 테스트",
+  "money": -1000
+}
+
+
+#############
+
+
+### 회원가입 (셀러)
+
+
+### 이메일 인증( 셀러)
+
+
+### 로그인( 셀러)
+
+
+### 회원 정보 조회( 셀러)
+
+
+### 잔액 변경(셀러)

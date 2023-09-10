@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @Audited//엔티티의 정보가 바뀌면 그 내용을 저장.(상품 옵션이 바뀌면 장바구니에 옵션도 바뀌듯)
 @AuditOverride(forClass = BaseEntity.class)
-public class Product extends BaseEntity{
+public class Product extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +32,7 @@ public class Product extends BaseEntity{
     @JoinColumn(name = "product_id")
     private List<ProductItem> productItems = new ArrayList<>();
 
-    public static Product of(Long sellerId, AddProductForm form){
+    public static Product of(Long sellerId, AddProductForm form) {
         return Product.builder()
                 .sellerId(sellerId)
                 .name(form.getName())
@@ -42,8 +42,6 @@ public class Product extends BaseEntity{
                 .build();
 
     }
-
-
 
 
 }
