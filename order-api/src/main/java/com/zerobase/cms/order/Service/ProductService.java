@@ -19,20 +19,20 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     @Transactional
-    public Product addProduct(Long sellerId, AddProductForm form){
-        return productRepository.save(Product.of(sellerId,form));
+    public Product addProduct(Long sellerId, AddProductForm form) {
+        return productRepository.save(Product.of(sellerId, form));
 
     }
 
     @Transactional
-    public Product UpdateProduct(Long sellerId, UpdateProductForm form){
+    public Product UpdateProduct(Long sellerId, UpdateProductForm form) {
         Product product = productRepository.findBySellerIdAndId(sellerId, form.getId())
                 .orElseThrow(() -> new CustomException(ErrorCode.NOT_FOUND_PRODUCT));
 
         product.setName(form.getName());
         product.setDescription(form.getDescription());
 
-        for (UpdateProductItemForm itemForm : form.getItems()){
+        for (UpdateProductItemForm itemForm : form.getItems()) {
             ProductItem item = product.getProductItems().stream()
                     .filter(pi -> pi.getId().equals(itemForm.getId()))
                     .findFirst().orElseThrow(() -> new CustomException(ErrorCode.NOT_FOUND_PRODUCT));
@@ -45,5 +45,11 @@ public class ProductService {
 
     }
 
+    @Transactional
+    public void deleteProduct(Long sellerId, Long productId) {
+        Product product = productRepository.findBySellerIdAndId(sellerId, productId)
+                .orElseThrow(() -> new CustomException(ErrorCode.NOT_FOUND_PRODUCT));
+        productRepository.delete(product);
+    }
 
 }
