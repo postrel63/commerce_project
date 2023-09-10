@@ -6,7 +6,7 @@ X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvV3ljLzFTSnRqMnBQZWIvL205TUl5dnliZ
 
 
 {
-  "description": "나이키 에어포스2",
+  "description": "에어포스입니다.",
   "items": [
     {
       "count": 1,
@@ -14,7 +14,7 @@ X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvV3ljLzFTSnRqMnBQZWIvL205TUl5dnliZ
       "price": 10000
     }
   ],
-  "name": "string"
+  "name": "나이키 에어포스"
 }
 
 
@@ -31,3 +31,35 @@ X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvV3ljLzFTSnRqMnBQZWIvL205TUl5dnliZ
   "productId": 1
 }
 
+
+### UpdateProduct
+PUT http://localhost:8082/seller/product
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvV3ljLzFTSnRqMnBQZWIvL205TUl5dnliZ1VrS21YTXZCelhYbEJNSGg4PSIsImp0aSI6IlNWQlkzNVMyUHZjM0N5c1BjVGUwdkE9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjk0MzQ3MTkxLCJleHAiOjE2OTQ0MzM1OTF9.712i5TPYmcMAwA2j_khq_Wf13aW6JRj5Gug2vXWE4kU
+
+{
+  "description": "한정판 변경",
+  "id": 1,
+  "items": [
+    {
+      "count": 4,
+      "id": 1,
+      "name": "260",
+      "price": 500
+    }
+  ],
+  "name": "나이키 에어포스 한정판"
+}
+
+### UpdateProduct
+PATCH http://localhost:8082/seller/product/productItem
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvV3ljLzFTSnRqMnBQZWIvL205TUl5dnliZ1VrS21YTXZCelhYbEJNSGg4PSIsImp0aSI6IlNWQlkzNVMyUHZjM0N5c1BjVGUwdkE9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjk0MzQ3MTkxLCJleHAiOjE2OTQ0MzM1OTF9.712i5TPYmcMAwA2j_khq_Wf13aW6JRj5Gug2vXWE4kU
+
+{
+  "count": 7,
+  "id": 1,
+  "name": "230",
+  "price": 1000,
+  "productId": 1
+}
