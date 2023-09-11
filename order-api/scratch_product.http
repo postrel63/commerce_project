@@ -77,3 +77,18 @@ X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvV3ljLzFTSnRqMnBQZWIvL205TUl5dnliZ
 DELETE http://localhost:8082/seller/product/productItem?id=5
 Content-Type: application/json
 X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvV3ljLzFTSnRqMnBQZWIvL205TUl5dnliZ1VrS21YTXZCelhYbEJNSGg4PSIsImp0aSI6IlNWQlkzNVMyUHZjM0N5c1BjVGUwdkE9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjk0MzQ3MTkxLCJleHAiOjE2OTQ0MzM1OTF9.712i5TPYmcMAwA2j_khq_Wf13aW6JRj5Gug2vXWE4kU
+
+
+### 상품 검색
+GET http://localhost:8082/search/product?name=나이키
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvV3ljLzFTSnRqMnBQZWIvL205TUl5dnliZ1VrS21YTXZCelhYbEJNSGg4PSIsImp0aSI6IlNWQlkzNVMyUHZjM0N5c1BjVGUwdkE9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjk0MzQ3MTkxLCJleHAiOjE2OTQ0MzM1OTF9.712i5TPYmcMAwA2j_khq_Wf13aW6JRj5Gug2vXWE4kU
+
+
+
+### 상품 검색
+GET http://localhost:8082/search/product/detail?productId=1
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvV3ljLzFTSnRqMnBQZWIvL205TUl5dnliZ1VrS21YTXZCelhYbEJNSGg4PSIsImp0aSI6IlNWQlkzNVMyUHZjM0N5c1BjVGUwdkE9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjk0MzQ3MTkxLCJleHAiOjE2OTQ0MzM1OTF9.712i5TPYmcMAwA2j_khq_Wf13aW6JRj5Gug2vXWE4kU
+
+
