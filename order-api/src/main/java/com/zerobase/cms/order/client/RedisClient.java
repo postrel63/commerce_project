@@ -25,6 +25,7 @@ public class RedisClient {
     }
 
     private <T> T get(String key, Class<T> classType){
+        // 저장된 문자열을 다시 cart 객체로 전환. 어떤 종류의 객체로 변환할지 알려주기 위해Class<T> classType 사용
         String redisValue = (String) redisTemplate.opsForValue().get(key);
         if (ObjectUtils.isEmpty(redisValue)){
             return null;
@@ -42,6 +43,7 @@ public class RedisClient {
         put(key.toString(), cart);
     }
     private void put(String key, Cart cart){
+        //cart 객체를 받아서 문자열로 변환하고 저장
         try {
             redisTemplate.opsForValue().set(key,mapper.writeValueAsString(cart));
         }catch (JsonProcessingException e){
