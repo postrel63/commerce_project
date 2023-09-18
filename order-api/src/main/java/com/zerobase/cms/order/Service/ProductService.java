@@ -10,8 +10,8 @@ import com.zerobase.cms.order.exception.CustomException;
 import com.zerobase.cms.order.exception.ErrorCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -47,6 +47,7 @@ public class ProductService {
 
     @Transactional
     public void deleteProduct(Long sellerId, Long productId) {
+
         Product product = productRepository.findBySellerIdAndId(sellerId, productId)
                 .orElseThrow(() -> new CustomException(ErrorCode.NOT_FOUND_PRODUCT));
         productRepository.delete(product);
