@@ -16,7 +16,13 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor  // final 또는 @NonNull 필드만으로 구성된 생성자를 자동으로 생성합니다.
 public class CartService {
 
-    private RedisClient redisClient;  // Redis 데이터베이스와 상호작용하기 위한 클라이언트입니다.
+    private final RedisClient redisClient;  // Redis 데이터베이스와 상호작용하기 위한 클라이언트입니다.
+
+    //상품이 부족한데 추가할 수는 없으니까
+    public Cart getCart(Long customerId){
+        return redisClient.get(customerId, Cart.class);
+    }
+
 
     // 고객 ID와 상품 정보를 받아, 해당 고객의 장바구니에 상품을 추가합니다.
     public Cart addCart(Long customerId, AddProductCartForm form) {

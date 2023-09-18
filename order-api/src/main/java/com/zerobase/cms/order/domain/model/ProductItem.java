@@ -6,8 +6,6 @@ import org.hibernate.envers.AuditOverride;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Setter
@@ -17,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Audited
 @AuditOverride(forClass = BaseEntity.class)
-public class ProductItem extends BaseEntity{
+public class ProductItem extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,7 +35,7 @@ public class ProductItem extends BaseEntity{
     @JoinColumn(name = "product_id")
     private Product product;
 
-    public static ProductItem of(Long sellerId, AddProductItemForm form){
+    public static ProductItem of(Long sellerId, AddProductItemForm form) {
         return ProductItem.builder()
                 .sellerId(sellerId)
                 .name(form.getName())
@@ -46,14 +44,11 @@ public class ProductItem extends BaseEntity{
                 .build();
     }
 
-    public void updateInfo(String name, int price, int count){
+    public void updateInfo(String name, int price, int count) {
         this.name = name;
         this.price = price;
         this.count = count;
     }
-
-
-
 
 
 }
